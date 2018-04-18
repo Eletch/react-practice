@@ -1,4 +1,4 @@
-import { observable, computed, autorun, action } from 'mobx'
+import { observable, computed, action } from 'mobx'
 // import { computed } from 'mobx/lib/api/computed';
 
 class AppState {
@@ -10,12 +10,11 @@ class AppState {
   @action add() {
     this.count += 1
   }
+  @action changeName(name) {
+    this.name = name
+  }
 }
 
 const appState = new AppState()
-
-autorun(() => {
-  appState.add()
-})
 
 export default appState
